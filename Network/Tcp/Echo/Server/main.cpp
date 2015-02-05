@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
         client->waitForBytesWritten();
 
         client->close();
+
+        client->close();
     }
 
     return a.exec();
