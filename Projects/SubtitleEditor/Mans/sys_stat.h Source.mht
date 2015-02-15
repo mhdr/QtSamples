@@ -1,0 +1,212 @@
+From: <Saved by UnMHT Ver.7.3.0.5>
+Subject: sys/stat.h Source
+Date: Wed, 11 Feb 2015 20:32:27 +0350
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_48A1F94D_8312DEFF.14B799780F8";
+	type="text/html"
+
+------=_Part_48A1F94D_8312DEFF.14B799780F8
+Content-Location: file:///home/mahmood/.mozilla/firefox/hwm4lre5.default/ScrapBook/data/20150211203147/index.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8">
+
+
+<title>sys/stat.h Source</title>
+
+<base href=3D"file:///home/mahmood/.mozilla/firefox/hwm4lre5.default/ScrapB=
+ook/data/20150211203147/"></head>
+<body>
+<h1>Source to sys/stat.h</h1>
+<hr><form action=3D"http://unix.superglobalmegacorp.com/cgi-bin/src2html.cg=
+i" method=3D"POST">
+<input type=3D"submit" value=3D"Search">
+<input name=3D"NetBSD-0.8/newsrc" type=3D"text" value=3D"">
+Enter a symbol&#x27;s name here to quickly find it.
+</form><hr>
+<pre>/*-
+ * Copyright (c) 1982, 1986, 1989 The Regents of the University of Californ=
+ia.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *	This product includes software developed by the University of
+ *	California, Berkeley and its contributors.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS&#x27;&=
+#x27; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPO=
+SE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTI=
+AL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRI=
+CT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)stat.h	7.11 (Berkeley) 3/3/91
+ */
+
+struct <a <=3D"" a=3D"" name=3D"stat"><b>stat</b>
+{
+	dev_t	st_dev;			/* inode&#x27;s device */
+	ino_t	st_ino;			/* inode&#x27;s number */
+	mode_t	st_mode;		/* inode protection mode */
+	nlink_t	st_nlink;		/* number of hard links */
+	uid_t	st_uid;			/* user ID of the file&#x27;s owner */
+	gid_t	st_gid;			/* group ID of the file&#x27;s group */
+	dev_t	st_rdev;		/* device type */
+	off_t	st_size;		/* file size, in bytes */
+	time_t	st_atime;		/* time of last access */
+	long	st_spare1;
+	time_t	st_mtime;		/* time of last data modification */
+	long	st_spare2;
+	time_t	st_ctime;		/* time of last file status change */
+	long	st_spare3;
+	long	st_blksize;		/* optimal blocksize for I/O */
+	long	st_blocks;		/* blocks allocated for file */
+	u_long	st_flags;		/* user defined flags for file */
+	u_long	st_gen;			/* file generation number */
+};
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISUID"><b>S_ISUID</b>	0004000			/* s=
+et user id on execution */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISGID"><b>S_ISGID</b>	0002000			/* s=
+et group id on execution */
+#ifndef _POSIX_SOURCE
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISTXT"><b>S_ISTXT</b>	0001000			/* s=
+ticky bit */
+#endif
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_IRWXU"><b>S_IRWXU</b>	0000700			/* R=
+WX mask for owner */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IRUSR"><b>S_IRUSR</b>	0000400			/* R=
+ for owner */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IWUSR"><b>S_IWUSR</b>	0000200			/* W=
+ for owner */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IXUSR"><b>S_IXUSR</b>	0000100			/* X=
+ for owner */
+
+#ifndef _POSIX_SOURCE
+#define	</a><a <=3D"" a=3D"" name=3D"S_IREAD"><b>S_IREAD</b>		S_IRUSR
+#define	</a><a <=3D"" a=3D"" name=3D"S_IWRITE"><b>S_IWRITE</b>	S_IWUSR
+#define	</a><a <=3D"" a=3D"" name=3D"S_IEXEC"><b>S_IEXEC</b>		S_IXUSR
+#endif
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_IRWXG"><b>S_IRWXG</b>	0000070			/* R=
+WX mask for group */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IRGRP"><b>S_IRGRP</b>	0000040			/* R=
+ for group */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IWGRP"><b>S_IWGRP</b>	0000020			/* W=
+ for group */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IXGRP"><b>S_IXGRP</b>	0000010			/* X=
+ for group */
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_IRWXO"><b>S_IRWXO</b>	0000007			/* R=
+WX mask for other */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IROTH"><b>S_IROTH</b>	0000004			/* R=
+ for other */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IWOTH"><b>S_IWOTH</b>	0000002			/* W=
+ for other */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IXOTH"><b>S_IXOTH</b>	0000001			/* X=
+ for other */
+
+#ifndef _POSIX_SOURCE
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFMT"><b>S_IFMT</b>	 0170000		/* typ=
+e of file */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFIFO"><b>S_IFIFO</b>	 0010000		/* n=
+amed pipe (fifo) */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFCHR"><b>S_IFCHR</b>	 0020000		/* c=
+haracter special */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFDIR"><b>S_IFDIR</b>	 0040000		/* d=
+irectory */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFBLK"><b>S_IFBLK</b>	 0060000		/* b=
+lock special */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFREG"><b>S_IFREG</b>	 0100000		/* r=
+egular */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFLNK"><b>S_IFLNK</b>	 0120000		/* s=
+ymbolic link */
+#define	</a><a <=3D"" a=3D"" name=3D"S_IFSOCK"><b>S_IFSOCK</b> 0140000		/* =
+socket */
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISVTX"><b>S_ISVTX</b>	 0001000		/* s=
+ave swapped text even after use */
+
+#define </a><a <=3D"" a=3D"" name=3D"S_BLKSIZE"><b>S_BLKSIZE</b>	512		/* bl=
+ock size used in the stat struct */
+
+					/* 0666 */
+#define	</a><a <=3D"" a=3D"" name=3D"DEFFILEMODE"><b>DEFFILEMODE</b>	(S_IRU=
+SR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH)
+#endif
+
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISDIR"><b>S_ISDIR</b>(m)	((m &amp; 0=
+170000) =3D=3D 0040000)	/* directory */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISCHR"><b>S_ISCHR</b>(m)	((m &amp; 0=
+170000) =3D=3D 0020000)	/* char special */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISBLK"><b>S_ISBLK</b>(m)	((m &amp; 0=
+170000) =3D=3D 0060000)	/* block special */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISREG"><b>S_ISREG</b>(m)	((m &amp; 0=
+170000) =3D=3D 0100000)	/* regular file */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISFIFO"><b>S_ISFIFO</b>(m)	((m &amp;=
+ 0170000) =3D=3D 0010000)	/* fifo */
+#ifndef _POSIX_SOURCE
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISLNK"><b>S_ISLNK</b>(m)	((m &amp; 0=
+170000) =3D=3D 0120000)	/* symbolic link */
+#define	</a><a <=3D"" a=3D"" name=3D"S_ISSOCK"><b>S_ISSOCK</b>(m)	((m &amp;=
+ 0170000) =3D=3D 0140000)	/* socket */
+#endif
+
+#ifndef KERNEL
+#include &lt;sys/cdefs.h&gt;
+
+__BEGIN_DECLS
+mode_t	umask __P((mode_t));
+int	chmod __P((const char *, mode_t));
+int	fstat __P((int, struct stat *));
+int	mkdir __P((const char *, mode_t));
+int	mkfifo __P((const char *, mode_t));
+int	stat __P((const char *, struct stat *));
+#ifndef _POSIX_SOURCE
+int	fchmod __P((int, mode_t));
+int	lstat __P((const char *, struct stat *));
+#endif /* not POSIX */
+__END_DECLS
+#endif
+
+
+
+
+
+
+
+
+
+
+</a></pre><a <=3D"" a=3D"" name=3D"S_ISSOCK">
+</a>
+
+</body></html>
+------=_Part_48A1F94D_8312DEFF.14B799780F8--
