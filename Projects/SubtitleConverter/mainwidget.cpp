@@ -1,5 +1,6 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
+#include <QDebug>
 
 QTextStream log(stdout);
 QSettings settings("settings.ini",QSettings::IniFormat);
