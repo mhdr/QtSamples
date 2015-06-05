@@ -9,12 +9,11 @@ class PrintMsg : public QObject
     Q_OBJECT
 public:
     explicit PrintMsg(QObject *parent = 0);
-    void print(int value);
 
 signals:
 
 public slots:
-
+    void print(int value);
 };
 
 #endif // PRINTMSG_H
