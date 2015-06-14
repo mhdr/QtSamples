@@ -5,7 +5,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QTextStream(stdout) << "Hello World!!!" << endl;
+    QTextStream out(stdout);
+    out << "Hello World!!!" << endl;
 
     return a.exec();
 }
