@@ -65,7 +65,7 @@ void MainWidget::on_buttonConvert_clicked()
 
     QFileInfo *fileInfo=new QFileInfo(fileName);
 
-    QString suffix= fileInfo->completeSuffix();
+    QString suffix= fileInfo->suffix();
 
     if (suffix!="srt")
     {
