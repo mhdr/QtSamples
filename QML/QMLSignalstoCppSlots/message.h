@@ -12,6 +12,7 @@ public:
 signals:
 
 public slots:
+    void doMessage();
 };
 
 #endif // MESSAGE_H
