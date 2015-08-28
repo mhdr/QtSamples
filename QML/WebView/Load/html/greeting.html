@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+
+    <script src="js/jquery-2.1.4.js"></script>
+</head>
+<body>
+    <div id="hl">Hello <span id="n1"></span></div>
+
+    <script>
+        $(document).ready(function(){
+            var value= getParameterByName("name");
+            $("#n1").text(value);
+        });
+    </script>
+
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>
+</body>
+</html>
