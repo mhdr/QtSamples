@@ -21,7 +21,20 @@ int main(int argc, char *argv[])
     client->waitForBytesWritten();
 
     client->waitForReadyRead();
-    QByteArray echoDataB=client->read(1024);
+    QByteArray dataRcvd=client->read(1024);
+    QByteArray echoDataB=QByteArray();
+
+    while (dataRcvd.length()>0) {
+        echoDataB.append(dataRcvd);
+
+        if (dataRcvd.length()<1024)
+        {
+            break;
+        }
+
+        dataRcvd=client->read(1024);
+    }
+
 
     QString echoData=QString::fromUtf8(echoDataB);
 

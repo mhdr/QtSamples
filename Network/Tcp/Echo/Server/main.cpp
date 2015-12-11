@@ -31,7 +31,19 @@ int main(int argc, char *argv[])
         QTextStream(stdout) << msg << endl;
 
         client->waitForReadyRead();
-        QByteArray dataB= client->read(1024);
+        QByteArray dataRcvd= client->read(1024);
+        QByteArray dataB=QByteArray();
+
+        while (dataRcvd.length()>0) {
+            dataB.append(dataRcvd);
+
+            if (dataRcvd.length()<1024)
+            {
+                break;
+            }
+
+            dataRcvd=client->read(1024);
+        }
 
         QString data=QString::fromUtf8(dataB);
 
@@ -41,7 +53,6 @@ int main(int argc, char *argv[])
         client->waitForBytesWritten();
 
         client->close();
-
         client->close();
     }
 
